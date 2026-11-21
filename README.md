@@ -62,9 +62,9 @@ Text in Markdown…
 ```
 
 The URL is the file name (`/writing/my-essay/`). The essay's watercolour squares are generated
-from its title, so they stay the same as long as the title does. The **Writing** tab and the homepage
-Writing card appear automatically once the first essay is published (no longer a draft); the topic
-filter appears once essays cover two or more topics. A new topic gets the default colour unless you
+from its title, so they stay the same as long as the title does. The **Writing** tab and homepage card are always shown
+(`showWriting = true` in `hugo.toml`; set it to `false` to show them only once an essay is published).
+The topic filter appears once essays cover two or more topics. A new topic gets the default colour unless you
 add it under `[params.topics]` in `hugo.toml`.
 
 Delete the two example essays in `content/writing/` when you add real ones (they are drafts and never
