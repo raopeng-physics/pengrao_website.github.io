@@ -40,8 +40,7 @@ p { margin: 0; }
 
 /* ---------- Header ---------- */
 .site-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 32px; position: relative; z-index: 2; }
-.site-name { font-family: var(--display); font-weight: 600; font-size: clamp(36px, 4.5vw, 52px); line-height: 1; color: var(--ink); text-decoration: none; }
-.home .site-name { font-size: clamp(44px, 6vw, 72px); }
+.site-name { font-family: var(--display); font-weight: 600; font-size: clamp(44px, 6vw, 72px); line-height: 1; color: var(--ink); text-decoration: none; }
 .site-nav { display: flex; gap: 6px; background: var(--card); padding: 4px 8px; font-weight: 500; font-size: 17px; }
 .site-nav a { text-decoration: none; padding: 12px 14px; color: var(--navy); }
 .site-nav a[aria-current="page"] { box-shadow: inset 0 -3px 0 var(--accent, #EE7A26); }
