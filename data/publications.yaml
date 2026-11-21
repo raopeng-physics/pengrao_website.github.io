@@ -1,10 +1,12 @@
 # Selected publications shown on the Physics page (the full list lives on Google Scholar).
 # Order here = order on the page. All fields except title and authors are optional.
+# Optional `area: 1` (2, 3, …) colours the stripe like that research area on the Physics page.
 selected:
   - title: "Dynamical response theory of interacting Majorana fermions and its application to generic Kitaev quantum spin liquids in a field"
     authors: "Peng Rao, Roderich Moessner, Johannes Knolle"
     journal: "Phys. Rev. B."
     year: "2025"
+    area: 1
     doi: "10.1103/f4b4-h1yr"            # e.g. "10.1103/PhysRevB.xxx.xxxxxx"
     takeaway: "We developed a general framework of interacting Majorana fermions to compute the dynamical response of a Kitaev quatntum spin liquid away from the solvable pure Kitaev limit."
   - title: 'Order-by-disorder in magnets with frustrated spin interactions - classical and large-$S$ limits via the spin functional integral'

@@ -63,9 +63,12 @@
     <div class="inner">
       <h2 style="font-size:28px">Selected publications</h2>
       <ol class="pubs">
-        {{- $cols := slice "#1F7A9C" "#F0A630" "#C7442B" "#5F6E28" "#C9789A" "#7A2E2A" }}
+        {{- /* Stripe = colour of the paper's research area (area: 1, 2, … in publications.yaml);
+               without `area`, papers cycle through the research-area colours. */}}
+        {{- $nA := len $research | default 1 }}
         {{- range $i, $p := site.Data.publications.selected }}
-        <li style="--c:{{ index $cols (mod $i 6) }}">
+        {{- $k := cond (isset $p "area") (sub (int $p.area) 1) (mod $i $nA) }}
+        <li style="--c:{{ (index $rc (mod $k (len $rc))).bg }}">
           <span class="t">{{ $p.title }}</span>
           <span class="m">{{ $p.authors }}{{ with $p.journal }}, {{ . }}{{ end }}{{ with $p.year }} ({{ . }}){{ end }}{{ with $p.arxiv }} · <a href="https://arxiv.org/abs/{{ . }}">arXiv</a>{{ end }}{{ with $p.doi }} · <a href="https://doi.org/{{ . }}">DOI</a>{{ end }}</span>
           {{ with $p.takeaway }}<span style="font-size:15px;line-height:1.5">{{ . }}</span>{{ end }}
