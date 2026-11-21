@@ -1,0 +1,14 @@
+{{- $essays := where (where site.RegularPages "Section" "writing") "Draft" false -}}
+{{- if hugo.IsServer }}{{ $essays = where site.RegularPages "Section" "writing" }}{{ end -}}
+{{- $sec := .Section -}}
+<header class="site-header wrap">
+  <a class="site-name" href="{{ "/" | relURL }}">{{ site.Params.name }}</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>About</a>
+    <a href="{{ "/physics/" | relURL }}"{{ if or (eq $sec "physics") (eq $sec "notes") }} aria-current="page"{{ end }}>Physics</a>
+    {{- /* The Writing tab appears automatically once at least one essay is published (draft: false). */}}
+    {{- if gt (len $essays) 0 }}
+    <a href="{{ "/writing/" | relURL }}"{{ if eq $sec "writing" }} aria-current="page"{{ end }}>Writing</a>
+    {{- end }}
+  </nav>
+</header>

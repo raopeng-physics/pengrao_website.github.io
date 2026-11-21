@@ -1,0 +1,20 @@
+# Selected publications shown on the Physics page (the full list lives on Google Scholar).
+# Order here = order on the page. All fields except title and authors are optional.
+selected:
+  - title: "[Paper title]"
+    authors: "[Authors]"
+    journal: "[Journal]"
+    year: "[Year]"
+    arxiv: ""          # e.g. "2604.03099" (just the number)
+    doi: ""            # e.g. "10.1103/PhysRevB.xxx.xxxxxx"
+    takeaway: "[One-line takeaway]"
+  - title: "[Paper title]"
+    authors: "[Authors]"
+    journal: "[Journal]"
+    year: "[Year]"
+    takeaway: "[One-line takeaway]"
+  - title: "[Paper title]"
+    authors: "[Authors]"
+    journal: "[Journal]"
+    year: "[Year]"
+    takeaway: "[One-line takeaway]"

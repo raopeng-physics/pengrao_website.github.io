@@ -1,0 +1,13 @@
+<svg aria-hidden="true" width="0" height="0" style="position:absolute;width:0;height:0" focusable="false">
+  <defs>
+    {{- /* Ragged watercolour edges. "scale" is in the user units of the SVG that uses the filter. */}}
+    <filter id="wc-text" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" seed="22"/><feDisplacementMap in="SourceGraphic" scale="1.4"/></filter>
+    <filter id="wc-text-b" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" seed="57"/><feDisplacementMap in="SourceGraphic" scale="1.4"/></filter>
+    <filter id="wc-deco" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" seed="89"/><feDisplacementMap in="SourceGraphic" scale="6"/></filter>
+    <filter id="wc-deco-b" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" seed="13"/><feDisplacementMap in="SourceGraphic" scale="6"/></filter>
+    <filter id="wc-strip" x="-2%" y="-60%" width="104%" height="220%"><feTurbulence type="fractalNoise" baseFrequency="0.04 0.2" numOctaves="3" seed="21"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+    <filter id="wc-comp" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="9"/><feDisplacementMap in="SourceGraphic" scale="8"/></filter>
+    <filter id="wc-thumb" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="7"/></filter>
+    <filter id="wc-thumb-b" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="3" seed="19"/><feDisplacementMap in="SourceGraphic" scale="7"/></filter>
+  </defs>
+</svg>

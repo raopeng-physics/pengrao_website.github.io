@@ -1,0 +1,18 @@
+{{ define "pagestyle" }}--accent:#A57A55{{ end }}
+
+{{ define "main" }}
+{{- $name := .Params.topic | default "Other" -}}
+{{- $t := index site.Params.topics $name | default site.Params.topics.default -}}
+<article class="article">
+  <header class="article-head">
+    <span class="meta"><a class="topic" style="color:{{ $t.ink }}" href="{{ "/writing/" | relURL }}#{{ $name | urlize }}">{{ $name }}</a><span>{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min read</span></span>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">{{ .Content }}</div>
+  <nav class="article-nav" aria-label="More writing">
+    <a href="{{ "/writing/" | relURL }}">← All writing</a>
+    {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">Next: {{ .Title }} →</a>{{ end }}
+  </nav>
+</article>
+{{ end }}
