@@ -2,7 +2,7 @@
 title: "Two short stories"
 date: 2026-11-21
 topic: "Stories"
-description: "These two short stories below were completed between the end of 2022 and early 2023. The first stry is a variation on Kafka's unpublished story 'Der Aufruf' ('The Uprising') that was published as a part of his diary. The second story was completed in the immediate aftermath of the sudden reversal of the 'zero-Covid' policy in China in December 2022."
+description: "These two short stories below were completed between the end of 2022 and early 2023. The first story is a variation on Kafka's unpublished story 'Der Aufruf' ('The Uprising') that was published as a part of his diary. The second story was completed in the immediate aftermath of the sudden reversal of the 'zero-Covid' policy in China in December 2022."
 # subtitle: "Optional subtitle"
 # draft: true keeps the essay off the live site. Delete this example, or set draft: false on a real essay to publish it.
 # draft: true
