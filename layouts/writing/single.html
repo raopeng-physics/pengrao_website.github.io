@@ -8,6 +8,7 @@
     <span class="meta"><a class="topic" style="color:{{ $t.ink }}" href="{{ "/writing/" | relURL }}#{{ $name | urlize }}">{{ $name }}</a><span>{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min read</span></span>
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+    {{ with .Description }}<p class="intro">{{ . | markdownify }}</p>{{ end }}
   </header>
   <div class="prose">{{ .Content }}</div>
   <nav class="article-nav" aria-label="More writing">

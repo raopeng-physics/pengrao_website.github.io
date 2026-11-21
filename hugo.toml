@@ -56,6 +56,10 @@ disableKinds = ["taxonomy", "term"]
     color = "#1F7A9C"
     ink = "#1F6A88"
     partners = ["#6E7D2E", "#C9789A", "#24583A", "#DCD660"]
+  [params.topics.Stories]
+    color = "#C7442B"
+    ink = "#A33A24"
+    partners = ["#F0A630", "#7A2E2A", "#2B8DB0", "#C9789A"]
   # Used for any topic not listed above
   [params.topics.default]
     color = "#C7442B"
