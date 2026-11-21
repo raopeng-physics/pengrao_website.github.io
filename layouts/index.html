@@ -28,14 +28,9 @@
     {{ partial "wash.html" (dict "fill" "#FBF7EE" "rot" -0.4) }}
     <div class="inner">
       {{ with site.Params.photo }}<img class="portrait" src="{{ . | relURL }}" alt="Portrait of {{ site.Params.name }}">{{ else }}<div class="portrait" role="img" aria-label="Portrait placeholder">[PHOTO]</div>{{ end }}
-      <p class="intro-lead">{{ site.Params.tagline }} {{ site.Params.position }}.</p>
+      <p class="intro-lead">{{ strings.TrimSuffix "." site.Params.tagline }}.{{ with site.Params.position }} {{ strings.TrimSuffix "." . }}.{{ end }}</p>
       {{ with .Content }}<div class="intro-more">{{ . }}</div>{{ end }}
-      <p class="intro-links">
-        <a href="{{ site.Params.cv | relURL }}">CV (PDF)</a>
-        <span>{{ site.Params.email }}</span>
-        <a href="{{ site.Params.scholar }}">Scholar</a>
-        <a href="{{ site.Params.orcid }}">ORCID</a>
-      </p>
+      <p class="intro-links"><a href="{{ site.Params.cv | relURL }}">CV (PDF)</a></p>
     </div>
   </section>
 
@@ -72,6 +67,13 @@
     </span>
   </a>
   {{- end }}
+  <section class="wc c-contact" aria-label="Contact">
+    {{ partial "wash.html" (dict "fill" "#D9EBEA" "rot" -0.6 "alt" true) }}
+    <div class="inner">
+      <span class="card-title">Contact</span>
+      {{ partial "contact.html" . }}
+    </div>
+  </section>
 </div>
 {{ end }}
 

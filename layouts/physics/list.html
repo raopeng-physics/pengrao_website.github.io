@@ -98,8 +98,7 @@
     {{ partial "wash.html" (dict "fill" "#9ACFCF" "rot" 0.4) }}
     <div class="inner">
       <h2 style="font-size:22px">Contact</h2>
-      <p>{{ site.Params.email }} · {{ site.Params.affiliation }}</p>
-      <p style="display:flex;flex-wrap:wrap;gap:14px"><a href="{{ site.Params.scholar }}">Scholar</a><a href="{{ site.Params.orcid }}">ORCID</a><a href="{{ site.Params.arxiv }}">arXiv</a></p>
+      {{ partial "contact.html" . }}
     </div>
   </section>
 
