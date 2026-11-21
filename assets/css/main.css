@@ -144,13 +144,6 @@ a.wc.on-dark:hover { color: #fff; }
 .simple { max-width: 680px; margin: 24px auto 0; width: 100%; }
 .simple h1 { font-size: 40px; margin-bottom: 20px; }
 
-/* Wide screens: keep the cards to the left so the composition has room on the right */
-@media (min-width: 1100px) {
-  .cards { max-width: 64%; }
-  .home-compo { width: 42%; top: 150px; right: 0; }
-  .cards .c-writing { margin-top: 20px; }
-}
-
 /* ---------- Phones ---------- */
 @media (max-width: 760px) {
   .home-compo { display: none; }
