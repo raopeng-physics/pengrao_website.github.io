@@ -20,6 +20,12 @@
   (dict "c" "1 / 2" "r" "10 / 12" "k" "d1" "rot" 1.2)
   (dict "c" "9 / 10" "r" "10 / 11" "k" "d4" "rot" -2.2)
   (dict "c" "9 / 10" "r" "11 / 12" "k" "d5" "rot" -1.4)
+  (dict "c" "1 / 2" "r" "12 / 14" "k" "d5" "rot" 1.4)
+  (dict "c" "8 / 10" "r" "12 / 13" "k" "d6" "rot" -1.8)
+  (dict "c" "8 / 9" "r" "13 / 14" "k" "d8" "rot" 2.2)
+  (dict "c" "10 / 13" "r" "12 / 13" "k" "d1" "rot" 1.1)
+  (dict "c" "9 / 11" "r" "13 / 14" "k" "d4" "rot" -1.2)
+  (dict "c" "11 / 13" "r" "13 / 14" "k" "d3" "rot" 1.6)
 -}}
 <div class="mosaic">
 
@@ -36,7 +42,7 @@
     <div class="inner">
       <h2 style="font-size:30px">CV</h2>
       <p style="font-size:15px">Positions, education, talks.</p>
-      <p style="display:flex;flex-wrap:wrap;gap:16px;font-weight:500;margin-top:auto"><a href="{{ site.Params.cv | relURL }}">Read</a><a href="{{ site.Params.cv | relURL }}" download>Download PDF</a></p>
+      <p style="font-weight:500;margin-top:auto"><a href="{{ site.Params.cv | relURL }}">PDF</a></p>
     </div>
   </section>
 
@@ -66,9 +72,6 @@
         </li>
         {{- end }}
       </ol>
-      {{- with site.Params.thesis }}
-      <p class="thesis"><span class="label">PhD thesis</span><a href="{{ .pdf | relURL }}" class="t">{{ .title }}</a><span class="m">{{ .institution }}, {{ .year }}</span></p>
-      {{- end }}
       <a href="{{ site.Params.scholar }}" style="font-weight:500">Full list on Google Scholar →</a>
     </div>
   </section>
@@ -81,7 +84,7 @@
       <div class="note-item">
         <h2 style="font-size:21px"><a href="{{ .RelPermalink }}" style="color:inherit;text-decoration:none">{{ .Title }}</a></h2>
         <p style="font-size:14px">{{ with .Params.pages }}~{{ . }} pages · {{ end }}{{ .Date.Format "January 2006" }}</p>
-        <p class="note-links"><a href="{{ .RelPermalink }}">About</a>{{ with .Params.pdf }}<a href="{{ . | relURL }}">Read PDF</a><a href="{{ . | relURL }}" download>Download</a>{{ end }}</p>
+        <p class="note-links"><a href="{{ .RelPermalink }}">About</a>{{ with .Params.pdf }}<a href="{{ . | relURL }}">PDF</a>{{ end }}</p>
       </div>
       {{- end }}
       {{- if gt (len $notes) 1 }}<a href="{{ "/physics/notes/" | relURL }}" style="font-weight:500;margin-top:4px">All lecture notes with abstracts →</a>{{ end }}
@@ -96,6 +99,18 @@
       <p style="display:flex;flex-wrap:wrap;gap:14px"><a href="{{ site.Params.scholar }}">Scholar</a><a href="{{ site.Params.orcid }}">ORCID</a><a href="{{ site.Params.arxiv }}">arXiv</a></p>
     </div>
   </section>
+
+  {{- with site.Params.thesis }}
+  <section class="wc" style="grid-column:2 / 8;grid-row:12 / 14" aria-label="PhD thesis">
+    {{ partial "wash.html" (dict "fill" "#C9789A" "rot" 0.4 "alt" true) }}
+    <div class="inner">
+      <span class="label">PhD thesis</span>
+      <h2><a href="{{ .pdf | relURL }}" style="color:inherit;text-decoration:none">{{ .title }}</a></h2>
+      <p style="font-size:15px">{{ .institution }}, {{ .year }}</p>
+      <div class="btns"><a class="btn" href="{{ .pdf | relURL }}">PDF</a></div>
+    </div>
+  </section>
+  {{- end }}
 
   {{- range $decos }}
   <div class="wc deco{{ if .keep }} keep{{ end }}" aria-hidden="true" style="grid-column:{{ .c | safeCSS }};grid-row:{{ .r | safeCSS }}">{{ partial "wash.html" (dict "fill" (index $d .k) "rot" .rot "kind" "deco" "alt" (gt .rot 0)) }}</div>

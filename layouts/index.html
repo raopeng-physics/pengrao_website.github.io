@@ -43,15 +43,15 @@
     {{ partial "wash.html" (dict "fill" "#2E3A59" "rot" 0.5 "alt" true) }}
     <span class="inner">
       <span class="card-title">Physics</span>
-      <span class="card-text" style="font-size:16px">Research, selected publications and lecture notes</span>
+      <span class="card-text" style="font-size:16px">{{ .Params.cards.physics | default "Research, selected publications and lecture notes" }}</span>
     </span>
   </a>
 
-  <a class="wc c-notes" href="{{ with index $notes 0 }}{{ .RelPermalink }}{{ else }}{{ "/physics/" | relURL }}{{ end }}">
+  <a class="wc c-notes" href="{{ if gt (len $notes) 1 }}{{ "/physics/notes/" | relURL }}{{ else }}{{ with index $notes 0 }}{{ .RelPermalink }}{{ else }}{{ "/physics/" | relURL }}{{ end }}{{ end }}">
     {{ partial "wash.html" (dict "fill" "#F6E2B8" "rot" -0.8) }}
     <span class="inner">
       <span class="card-title">Lecture notes</span>
-      <span class="card-text">{{ range first 2 $notes }}{{ .Title }}{{ with .Params.pages }} · ~{{ . }} pages{{ end }}<br>{{ end }}</span>
+      <span class="card-text">{{ .Params.cards.notes | default "Notes from graduate courses" }}</span>
     </span>
   </a>
 
@@ -59,7 +59,7 @@
     {{ partial "wash.html" (dict "fill" "#E3E5C9" "rot" 0.9 "alt" true) }}
     <span class="inner">
       <span class="card-title">Selected publications</span>
-      <span class="card-text">{{ len site.Data.publications.selected }} selected papers · full list on Google Scholar</span>
+      <span class="card-text">{{ .Params.cards.publications | default "Selected papers · full list on Google Scholar" }}</span>
     </span>
   </a>
 
@@ -68,7 +68,7 @@
     {{ partial "wash.html" (dict "fill" "#F1D9E1" "rot" 0.5) }}
     <span class="inner">
       <span class="card-title">Writing</span>
-      <span class="card-text">{{ with index $essays 0 }}Latest: {{ .Title }}{{ else }}Essays beyond physics — economics, philosophy{{ end }}</span>
+      <span class="card-text">{{ with index $essays 0 }}Latest: {{ .Title }}{{ else }}{{ $.Params.cards.writing | default "Essays beyond physics" }}{{ end }}</span>
     </span>
   </a>
   {{- end }}

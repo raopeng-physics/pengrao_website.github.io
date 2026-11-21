@@ -10,10 +10,7 @@
     <p class="meta" style="margin:0">{{ with .Params.pages }}<span>~{{ . }} pages</span>{{ end }}<span>{{ .Date.Format "January 2006" }}</span>{{ with .Params.version }}<span>Version {{ . }}</span>{{ end }}</p>
     <div class="abstract">{{ .Content }}</div>
     {{ with .Params.pdf }}
-    <div class="btns">
-      <a class="btn" href="{{ . | relURL }}">Read in browser</a>
-      <a class="btn ghost" href="{{ . | relURL }}" download>Download PDF</a>
-    </div>
+    <div class="btns"><a class="btn" href="{{ . | relURL }}">PDF</a></div>
     {{ end }}
     {{ with .Params.license }}<p class="cite">Licence: {{ . }}</p>{{ end }}
     <p class="cite">Cite as: {{ site.Params.name }}, “{{ .Title }}”, lecture notes ({{ .Date.Format "2006" }}), {{ .Permalink }}</p>

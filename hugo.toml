@@ -28,13 +28,10 @@ disableKinds = ["taxonomy", "term"]
 
 [params]
   name = "Peng Rao"
-  position = "Postdoctoral researcher in Prof. Johannes Knolle’s group, Technical University of Munich"
   tagline = "Theoretical condensed-matter physicist."
-  email = "[EMAIL]"
   affiliation = "Physics Department, Technical University of Munich"
   scholar = "https://scholar.google.com/citations?user=5MsEmIwAAAAJ&hl=en"
-  orcid = "https://orcid.org/my-orcid?orcid=0000-0003-1250-0021"
-  arxiv = "https://arxiv.org/"
+  orcid = "https://orcid.org/0000-0003-1250-0021"
   # Put your CV at static/files/cv.pdf (or change the path here)
   cv = "/files/cv.pdf"
   # Put a portrait at static/files/portrait.jpg and set: photo = "/files/portrait.jpg"
