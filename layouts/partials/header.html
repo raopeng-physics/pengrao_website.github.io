@@ -7,7 +7,7 @@
     <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>About</a>
     <a href="{{ "/physics/" | relURL }}"{{ if or (eq $sec "physics") (eq $sec "notes") }} aria-current="page"{{ end }}>Physics</a>
     {{- /* The Writing tab appears automatically once at least one essay is published (draft: false). */}}
-    {{- if gt (len $essays) 0 }}
+    {{- if or site.Params.showWriting (gt (len $essays) 0) }}
     <a href="{{ "/writing/" | relURL }}"{{ if eq $sec "writing" }} aria-current="page"{{ end }}>Writing</a>
     {{- end }}
   </nav>

@@ -29,6 +29,8 @@ disableKinds = ["taxonomy", "term"]
   cv = "/files/cv.pdf"
   # Put a portrait at static/files/portrait.jpg and set: photo = "/files/portrait.jpg"
   photo = ""
+  # Show the Writing tab and homepage card even before the first essay is published
+  showWriting = true
 
   # Topic colours for the Writing section. Each essay sets `topic:` in its front matter.
   # `partners` are the colours a second square may take next to the topic colour.
