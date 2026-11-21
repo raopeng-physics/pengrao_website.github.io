@@ -1,0 +1,20 @@
+{{ define "pagestyle" }}--accent:#A8432C{{ end }}
+
+{{ define "main" }}
+<p style="margin-top:8px"><a href="{{ "/physics/" | relURL }}" style="text-decoration:none;font-weight:500">← Physics</a></p>
+<div class="notes-list">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{- $fills := slice "#F6E2B8" "#E3E5C9" "#F1D9E1" "#D9EBEA" }}
+  {{- range $i, $n := .Pages.ByDate.Reverse }}
+  <article class="wc note">
+    {{ partial "wash.html" (dict "fill" (index $fills (mod $i 4)) "rot" (cond (eq (mod $i 2) 0) -0.3 0.4) "alt" (eq (mod $i 2) 1)) }}
+    <div class="inner">
+      <h2 style="font-size:28px"><a href="{{ $n.RelPermalink }}" style="color:inherit;text-decoration:none">{{ $n.Title }}</a></h2>
+      <p class="meta" style="margin:0">{{ with $n.Params.pages }}<span>~{{ . }} pages</span>{{ end }}<span>{{ $n.Date.Format "January 2006" }}</span>{{ with $n.Params.version }}<span>Version {{ . }}</span>{{ end }}</p>
+      <div class="abstract">{{ $n.Content }}</div>
+      {{ with $n.Params.pdf }}<div class="btns"><a class="btn" href="{{ . | relURL }}">Read in browser</a><a class="btn ghost" href="{{ . | relURL }}" download>Download PDF</a></div>{{ end }}
+    </div>
+  </article>
+  {{- end }}
+</div>
+{{ end }}

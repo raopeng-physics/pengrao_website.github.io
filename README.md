@@ -70,6 +70,17 @@ add it under `[params.topics]` in `hugo.toml`.
 Delete the two example essays in `content/writing/` when you add real ones (they are drafts and never
 appear online).
 
+## Maths (LaTeX)
+
+Write LaTeX between `$...$` (inline) or `$$...$$` (display) in paper titles, takeaways, research
+texts, note abstracts and essays; KaTeX renders it in the browser.
+
+- In Markdown files (essays, notes, page texts) type it as in a paper: `the $\mathbb{Z}_2$ spin liquid`.
+- In `data/publications.yaml` and front matter, wrap the text in **single quotes** so backslashes
+  stay as they are: `title: 'Majorana continua in the $J$-$K$-$\Gamma$ model'`.
+  (Inside double quotes every backslash would have to be doubled.)
+- Page titles in the browser tab and RSS show the raw LaTeX, so keep maths in essay titles light.
+
 ## Before launch
 
 - Fill in `[params]` in `hugo.toml` (email, Scholar/ORCID links), and add `static/files/cv.pdf`,

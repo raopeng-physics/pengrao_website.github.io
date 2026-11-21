@@ -30,5 +30,24 @@
     {{ partial "footer.html" . }}
   </div>
   {{ block "scripts" . }}{{ end }}
+  {{- /* LaTeX: $...$ inline, $$...$$ display. KaTeX is self-hosted under static/katex/ and only loaded where text can contain maths. */}}
+  {{- if or (in (slice "physics" "notes" "writing") .Section) .Params.math }}
+  <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}">
+  <script defer src="{{ "katex/katex.min.js" | relURL }}"></script>
+  <script defer src="{{ "katex/auto-render.min.js" | relURL }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "\\[", right: "\\]", display: true },
+          { left: "$", right: "$", display: false },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+  {{- end }}
 </body>
 </html>

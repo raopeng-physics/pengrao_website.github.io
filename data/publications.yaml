@@ -1,20 +1,21 @@
 # Selected publications shown on the Physics page (the full list lives on Google Scholar).
 # Order here = order on the page. All fields except title and authors are optional.
 selected:
-  - title: "[Paper title]"
-    authors: "[Authors]"
-    journal: "[Journal]"
-    year: "[Year]"
-    arxiv: ""          # e.g. "2604.03099" (just the number)
-    doi: ""            # e.g. "10.1103/PhysRevB.xxx.xxxxxx"
-    takeaway: "[One-line takeaway]"
-  - title: "[Paper title]"
-    authors: "[Authors]"
-    journal: "[Journal]"
-    year: "[Year]"
-    takeaway: "[One-line takeaway]"
-  - title: "[Paper title]"
-    authors: "[Authors]"
-    journal: "[Journal]"
-    year: "[Year]"
-    takeaway: "[One-line takeaway]"
+  - title: "Dynamical response theory of interacting Majorana fermions and its application to generic Kitaev quantum spin liquids in a field"
+    authors: "Peng Rao, Roderich Moessner, Johannes Knolle"
+    journal: "Phys. Rev. B."
+    year: "2025"
+    doi: "10.1103/f4b4-h1yr"            # e.g. "10.1103/PhysRevB.xxx.xxxxxx"
+    takeaway: "We developed a general framework of interacting Majorana fermions to compute the dynamical response of a Kitaev quatntum spin liquid away from the solvable pure Kitaev limit."
+  - title: 'Order-by-disorder in magnets with frustrated spin interactions - classical and large-$S$ limits via the spin functional integral'
+    authors: "Peng Rao, Johannes Knolle"
+    journal: "J. Phys.: Condens. Matter"
+    year: "2025"
+    doi: "10.1088/1361-648X/ae0bdf"
+    takeaway: "We formualted a functional integral approach to the Order-by-Disorder phenomena in frustrated magets."
+  - title: 'Berry phases of vison transport in $\mathbb{Z}_2$ topologically ordered states from exact fermion-flux lattice dualities'
+    authors: "Peng Rao, Chuan Chen, Inti Sodemann"
+    journal: "Phys. Rev. Research"
+    year: "2022"
+    doi: "10.1103/PhysRevResearch.4.043003"
+    takeaway: 'We developed an exact duality between 2D spin-$1/2$ lattices to the Majorana fermions and vison quasiparticles (see also my PhD thesis), and studied the topology of the vison bands in extended Kitaev models.'

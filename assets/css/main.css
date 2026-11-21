@@ -135,6 +135,20 @@ a.wc.on-dark:hover { color: #fff; }
 .article-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--rule); font-weight: 500; }
 .article-nav a { text-decoration: none; }
 
+.thesis { display: flex; flex-direction: column; gap: 2px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.thesis .t { font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--ink); text-decoration: underline; text-decoration-color: rgba(0,0,0,.3); }
+.thesis .m { font-size: 15px; color: var(--ink-soft); }
+
+/* Research areas (any number) */
+.research { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+/* Lecture notes tile + list page */
+.note-item { display: flex; flex-direction: column; gap: 4px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,.18); }
+.note-item:last-of-type { border-bottom: 0; }
+.note-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 15px; font-weight: 500; }
+.note-links a { color: #3A1410; }
+.notes-list { max-width: 760px; margin: 8px auto 0; width: 100%; display: flex; flex-direction: column; gap: 28px; }
+.notes-list .note { margin: 0; }
+
 /* Note landing page + simple pages */
 .note { max-width: 760px; margin: 24px auto 0; width: 100%; }
 .note .inner { padding: 34px; gap: 14px; }

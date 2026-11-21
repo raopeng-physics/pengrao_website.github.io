@@ -1,10 +1,10 @@
 ---
-title: "Strongly correlated magnetism"
+title: "Strongly correlated aspects of magnetism"
 date: 2026-11-01
 pages: 40
 version: "1.0"
 # Put the PDF in static/files/ and give its path here
-pdf: "/files/strongly-correlated-magnetism.pdf"
+pdf: "/files/Lecture_Notes_magnetism.pdf"
 license: "CC BY 4.0"
 ---
-[Three-line abstract of the lecture notes: what they cover, for whom, and what background they assume.]
+These lecture notes arise out of the graduate course ‘Advanced methods in many body physics’ at TUM, in which I participate as one of the lectureres. Topics include: spin functional integration, non-linear sigma model, skyrmions, Haldane’s conjecture, quantum spin liquid, lattice gauge theories, confinement.

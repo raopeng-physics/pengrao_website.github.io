@@ -6,8 +6,11 @@ disableKinds = ["taxonomy", "term"]
 
 # Lecture notes live in content/notes/ but are served under /physics/notes/
 [permalinks]
-  notes = "/physics/notes/:slug/"
-  writing = "/writing/:filename/"
+  [permalinks.page]
+    notes = "/physics/notes/:slug/"
+    writing = "/writing/:filename/"
+  [permalinks.section]
+    notes = "/physics/notes/"
 
 [outputs]
   home = ["HTML"]
@@ -16,14 +19,21 @@ disableKinds = ["taxonomy", "term"]
 [markup.goldmark.renderer]
   unsafe = true
 
+# Keep LaTeX between $...$ / $$...$$ untouched by Markdown; KaTeX renders it in the browser
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    inline = [["$", "$"], ["\\(", "\\)"]]
+    block = [["$$", "$$"], ["\\[", "\\]"]]
+
 [params]
   name = "Peng Rao"
-  position = "Postdoctoral researcher in Johannes Knolle’s group, Technical University of Munich"
+  position = "Postdoctoral researcher in Prof. Johannes Knolle’s group, Technical University of Munich"
   tagline = "Theoretical condensed-matter physicist."
   email = "[EMAIL]"
   affiliation = "Physics Department, Technical University of Munich"
-  scholar = "https://scholar.google.com/"
-  orcid = "https://orcid.org/"
+  scholar = "https://scholar.google.com/citations?user=5MsEmIwAAAAJ&hl=en"
+  orcid = "https://orcid.org/my-orcid?orcid=0000-0003-1250-0021"
   arxiv = "https://arxiv.org/"
   # Put your CV at static/files/cv.pdf (or change the path here)
   cv = "/files/cv.pdf"
@@ -31,6 +41,13 @@ disableKinds = ["taxonomy", "term"]
   photo = ""
   # Show the Writing tab and homepage card even before the first essay is published
   showWriting = true
+
+  # PhD thesis, linked on the Physics page (remove this block to hide it)
+  [params.thesis]
+    title = 'Spin–anyon duality and $\mathbb{Z}_2$ topological order'
+    institution = 'TU Dresden & MPI for the Physics of Complex Systems'
+    year = '2022'
+    pdf = '/files/PhD_thesis.pdf'
 
   # Topic colours for the Writing section. Each essay sets `topic:` in its front matter.
   # `partners` are the colours a second square may take next to the topic colour.

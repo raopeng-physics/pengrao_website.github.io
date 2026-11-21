@@ -11,8 +11,6 @@
   (dict "c" "12 / 13" "r" "2 / 4" "k" "d3" "rot" 1.2)
   (dict "c" "7 / 8" "r" "3 / 4" "k" "d7" "rot" -2.2)
   (dict "c" "8 / 9" "r" "3 / 4" "k" "d8" "rot" 2.4)
-  (dict "c" "5 / 6" "r" "4 / 6" "k" "d4" "rot" -1.4)
-  (dict "c" "5 / 6" "r" "6 / 7" "k" "d6" "rot" 1.8)
   (dict "c" "11 / 13" "r" "4 / 5" "k" "d5" "rot" -2.2)
   (dict "c" "11 / 12" "r" "5 / 7" "k" "d2" "rot" 1.2)
   (dict "c" "12 / 13" "r" "5 / 6" "k" "d7" "rot" -1.4)
@@ -42,18 +40,17 @@
     </div>
   </section>
 
-  {{- with index $research 0 }}
-  <section class="wc on-dark" style="grid-column:1 / 5;grid-row:4 / 7">
-    {{ partial "wash.html" (dict "fill" "#1F7A9C" "rot" 0.7) }}
-    <div class="inner"><span class="label">Research</span><h2>{{ .title }}</h2><p>{{ .text }}</p></div>
-  </section>
-  {{- end }}
-  {{- with index $research 1 }}
-  <section class="wc" style="grid-column:6 / 11;grid-row:4 / 7">
-    {{ partial "wash.html" (dict "fill" "#F0A630" "rot" -0.6 "alt" true) }}
-    <div class="inner"><span class="label">Research</span><h2>{{ .title }}</h2><p>{{ .text }}</p></div>
-  </section>
-  {{- end }}
+  {{- /* Research areas: as many as listed in content/physics/_index.md; colours cycle through the palette */}}
+  {{- $rc := slice (dict "bg" "#1F7A9C" "dark" true) (dict "bg" "#F0A630" "dark" false) (dict "bg" "#5F6E28" "dark" true) (dict "bg" "#C9789A" "dark" false) (dict "bg" "#7A2E2A" "dark" true) (dict "bg" "#DAD679" "dark" false) }}
+  <div class="research" style="grid-column:1 / 11;grid-row:4 / 7">
+    {{- range $i, $r := $research }}
+    {{- $c := index $rc (mod $i (len $rc)) }}
+    <section class="wc{{ if $c.dark }} on-dark{{ end }}">
+      {{ partial "wash.html" (dict "fill" $c.bg "rot" (cond (eq (mod $i 2) 0) 0.6 -0.5) "alt" (eq (mod $i 2) 1)) }}
+      <div class="inner"><span class="label">Research</span><h2>{{ $r.title }}</h2>{{ with $r.text }}<p>{{ . }}</p>{{ end }}</div>
+    </section>
+    {{- end }}
+  </div>
 
   <section id="publications" class="wc" style="grid-column:2 / 9;grid-row:7 / 12">
     {{ partial "wash.html" (dict "fill" "#F7F0DA" "rot" -0.3) }}
@@ -69,6 +66,9 @@
         </li>
         {{- end }}
       </ol>
+      {{- with site.Params.thesis }}
+      <p class="thesis"><span class="label">PhD thesis</span><a href="{{ .pdf | relURL }}" class="t">{{ .title }}</a><span class="m">{{ .institution }}, {{ .year }}</span></p>
+      {{- end }}
       <a href="{{ site.Params.scholar }}" style="font-weight:500">Full list on Google Scholar →</a>
     </div>
   </section>
@@ -77,14 +77,14 @@
     {{ partial "wash.html" (dict "fill" "#EE7A26" "rot" -0.6 "alt" true) }}
     <div class="inner">
       <span class="label">Lecture notes</span>
-      {{- range $i, $n := $notes }}
-      <h2><a href="{{ $n.RelPermalink }}" style="color:inherit;text-decoration:none">{{ $n.Title }}</a></h2>
-      <p style="font-size:15px">{{ with $n.Params.pages }}~{{ . }} pages · {{ end }}{{ $n.Date.Format "January 2006" }}{{ with $n.Params.version }}, version {{ . }}{{ end }}</p>
-      {{- if eq $i 0 }}
-      <p>{{ $n.Summary | plainify | truncate 220 }}</p>
-      <div class="btns"><a class="btn" href="{{ $n.RelPermalink }}">Read</a>{{ with $n.Params.pdf }}<a class="btn ghost" href="{{ . | relURL }}" download>Download PDF</a>{{ end }}</div>
+      {{- range $notes }}
+      <div class="note-item">
+        <h2 style="font-size:21px"><a href="{{ .RelPermalink }}" style="color:inherit;text-decoration:none">{{ .Title }}</a></h2>
+        <p style="font-size:14px">{{ with .Params.pages }}~{{ . }} pages · {{ end }}{{ .Date.Format "January 2006" }}</p>
+        <p class="note-links"><a href="{{ .RelPermalink }}">About</a>{{ with .Params.pdf }}<a href="{{ . | relURL }}">Read PDF</a><a href="{{ . | relURL }}" download>Download</a>{{ end }}</p>
+      </div>
       {{- end }}
-      {{- end }}
+      {{- if gt (len $notes) 1 }}<a href="{{ "/physics/notes/" | relURL }}" style="font-weight:500;margin-top:4px">All lecture notes with abstracts →</a>{{ end }}
     </div>
   </section>
 
