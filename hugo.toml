@@ -56,7 +56,7 @@ disableKinds = ["taxonomy", "term"]
     color = "#F0A630"
     ink = "#8A5A12"
     partners = ["#C7442B", "#7A2E2A", "#6E7D2E", "#EE7A26"]
-  [params.topics.Philosophy]
+  [params.topics.History]
     color = "#1F7A9C"
     ink = "#1F6A88"
     partners = ["#6E7D2E", "#C9789A", "#24583A", "#DCD660"]
