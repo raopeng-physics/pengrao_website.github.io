@@ -68,10 +68,16 @@
         {{- $nA := len $research | default 1 }}
         {{- range $i, $p := site.Data.publications.selected }}
         {{- $k := cond (isset $p "area") (sub (int $p.area) 1) (mod $i $nA) }}
-        <li style="--c:{{ (index $rc (mod $k (len $rc))).bg }}">
-          <span class="t">{{ $p.title }}</span>
-          <span class="m">{{ $p.authors }}{{ with $p.journal }}, {{ . }}{{ end }}{{ with $p.year }} ({{ . }}){{ end }}{{ with $p.arxiv }} · <a href="https://arxiv.org/abs/{{ . }}">arXiv</a>{{ end }}{{ with $p.doi }} · <a href="https://doi.org/{{ . }}">DOI</a>{{ end }}</span>
-          {{ with $p.takeaway }}<span style="font-size:15px;line-height:1.5">{{ . }}</span>{{ end }}
+        <li style="--c:{{ (index $rc (mod $k (len $rc))).bg }}"{{ if $p.figure }} class="has-fig"{{ end }}>
+          <div class="pub-text">
+            <span class="t">{{ $p.title }}</span>
+            <span class="m">{{ $p.authors }}{{ with $p.journal }}, {{ . }}{{ end }}{{ with $p.volume }} {{ . }}{{ end }}{{ with $p.pages }}, {{ . }}{{ end }}{{ with $p.year }} ({{ . }}){{ end }}</span>
+            {{ with $p.takeaway }}<span class="takeaway">{{ . }}</span>{{ end }}
+            <span class="pub-links">{{ with $p.doi }}<a href="https://doi.org/{{ . }}">DOI</a>{{ end }}</span>
+          </div>
+          {{- with $p.figure }}
+          <a class="pub-fig" href="{{ . | relURL }}" title="Open the full-size figure"><img src="{{ . | relURL }}" alt="{{ $p.figure_alt | default (printf "Figure from “%s”" $p.title) }}" loading="lazy"></a>
+          {{- end }}
         </li>
         {{- end }}
       </ol>
@@ -118,3 +124,4 @@
   {{- end }}
 </div>
 {{ end }}
+

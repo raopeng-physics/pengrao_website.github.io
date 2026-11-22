@@ -1,4 +1,18 @@
-{{- /* Contact details: edit email, affiliation and the profile links under [params] in hugo.toml */ -}}
-{{- with site.Params.email }}<p>{{ if in . "@" }}<a href="mailto:{{ . }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}</p>{{ end }}
+{{- /* Contact details: edit email, affiliation and the profile links under [params] in hugo.toml.
+  The email address is not written into the HTML: it is stored reversed and assembled by a script,
+  which keeps it away from simple spam harvesters. Without JavaScript it reads "name [at] domain". */ -}}
+{{- with site.Params.email }}
+{{- $p := split . "@" }}{{ $u := index $p 0 }}{{ $d := index $p 1 }}
+{{- $ru := "" }}{{ range split $u "" }}{{ $ru = print . $ru }}{{ end }}
+{{- $rd := "" }}{{ range split $d "" }}{{ $rd = print . $rd }}{{ end }}
+<p><a class="em" href="#" data-u="{{ $ru }}" data-d="{{ $rd }}">{{ $u }} [at] {{ replace $d "." " [dot] " }}</a></p>
+<script>
+document.querySelectorAll('a.em:not([data-done])').forEach(function (a) {
+  var r = function (s) { return s.split('').reverse().join(''); };
+  var e = r(a.dataset.u) + '@' + r(a.dataset.d);
+  a.href = 'mailto:' + e; a.textContent = e; a.dataset.done = '1';
+});
+</script>
+{{- end }}
 {{- with site.Params.affiliation }}<p style="font-size:15px">{{ . }}</p>{{ end }}
 <p class="contact-links">{{ with site.Params.scholar }}<a href="{{ . }}">Google Scholar</a>{{ end }}{{ with site.Params.orcid }}<a href="{{ . }}">ORCID</a>{{ end }}{{ with site.Params.arxiv }}<a href="{{ . }}">arXiv</a>{{ end }}</p>

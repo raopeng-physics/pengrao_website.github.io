@@ -94,6 +94,13 @@ a.wc.on-dark:hover { color: #fff; }
 .pubs li { display: flex; flex-direction: column; gap: 4px; padding-left: 16px; border-left: 4px solid var(--c, #1F7A9C); }
 .pubs .t { font-family: var(--serif); font-weight: 600; font-size: 19px; }
 .pubs .m { font-size: 15px; color: var(--ink-soft); }
+.pubs li.has-fig { display: grid; grid-template-columns: minmax(0, 1fr) 168px; column-gap: 20px; align-items: start; }
+.pub-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pubs .takeaway { font-size: 15px; line-height: 1.5; }
+.pub-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: 15px; font-weight: 500; margin-top: 2px; }
+.pub-fig { display: block; background: #fff; padding: 6px; border: 1px solid var(--rule); margin-top: 4px; }
+.pub-fig img { width: 100%; height: auto; }
+.pub-fig:hover { border-color: #8C7B66; }
 .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; font-weight: 500; }
 .btn { text-decoration: none; padding: 12px 18px; background: #7A2E2A; color: #fff; }
 .btn:hover { color: #fff; opacity: .9; }
@@ -174,5 +181,16 @@ a.wc.on-dark:hover { color: #fff; }
   .mosaic > .deco { display: none; }
   .mosaic > .deco.keep { display: block; grid-column: span 1 !important; min-height: 64px; }
   .thumb { flex-basis: 110px; }
+  .pubs li.has-fig { grid-template-columns: minmax(0, 1fr); row-gap: 10px; }
+  .pub-fig { max-width: 280px; }
   .page-title { font-size: 42px; }
 }
+
+/* ---------- 404 ---------- */
+.notfound { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; max-width: 900px; margin: 40px auto 0; width: 100%; }
+.nf-grid { flex: 0 0 280px; width: 280px; height: 280px; overflow: visible; }
+.nf-text { flex: 1 1 300px; display: flex; flex-direction: column; gap: 14px; }
+.nf-text h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.1; }
+.nf-text p { font-family: var(--serif); font-size: 20px; line-height: 1.55; color: #3A3530; }
+.nf-links { display: flex; flex-wrap: wrap; gap: 22px; font-family: var(--sans) !important; font-weight: 500; font-size: 17px !important; }
+@media (max-width: 760px) { .nf-grid { flex-basis: 200px; width: 200px; height: 200px; } }

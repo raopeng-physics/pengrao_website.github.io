@@ -36,6 +36,14 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Build
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Render link-preview images (card.svg -> card.png)
+        run: |
+          npm install --no-save --no-package-lock @resvg/resvg-js@2.6.2
+          node scripts/cards.mjs public
       - name: Upload
         uses: actions/upload-pages-artifact@v3
         with:

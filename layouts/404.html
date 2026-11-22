@@ -1,0 +1,23 @@
+{{ define "pagestyle" }}--accent:#C7442B{{ end }}
+
+{{ define "main" }}
+{{- /* A 3×3 grid of watercolour tiles from the 1914 palette with one tile missing. */ -}}
+{{- $tiles := slice "#F0A630" "#1F7A9C" "#C7442B" "#C9789A" "" "#5F6E28" "#EE7A26" "#2E3A59" "#7A2E2A" -}}
+<div class="notfound">
+  <svg class="nf-grid" viewBox="0 0 300 300" aria-hidden="true">
+    {{- range $i, $c := $tiles }}
+    {{- $x := add 10 (mul (mod $i 3) 96) }}{{ $y := add 10 (mul (div $i 3) 96) }}
+    {{- if $c }}
+    <rect x="{{ $x }}" y="{{ $y }}" width="88" height="88" fill="{{ $c }}" opacity="0.9" filter="url(#{{ cond (eq (mod $i 2) 0) "wc-thumb" "wc-thumb-b" }})" transform="rotate({{ sub (mod (mul $i 5) 7) 3 }} {{ add $x 44 }} {{ add $y 44 }})"/>
+    {{- else }}
+    <rect x="{{ add $x 4 }}" y="{{ add $y 4 }}" width="80" height="80" fill="none" stroke="#8C7B66" stroke-width="1.5" stroke-dasharray="6 5"/>
+    {{- end }}
+    {{- end }}
+  </svg>
+  <div class="nf-text">
+    <h1>404</h1>
+    <p>The page you are looking for has moved or never existed.</p>
+    <p class="nf-links"><a href="{{ "/" | relURL }}">About</a><a href="{{ "/physics/" | relURL }}">Physics</a><a href="{{ "/writing/" | relURL }}">Writing</a></p>
+  </div>
+</div>
+{{ end }}

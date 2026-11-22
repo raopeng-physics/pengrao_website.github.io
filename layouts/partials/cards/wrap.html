@@ -1,0 +1,15 @@
+{{- /* Greedy line wrap. Input: dict "text" "max" (characters per line) "lines" (max lines). Returns a slice of lines. */ -}}
+{{- $lines := slice -}}
+{{- $cur := "" -}}
+{{- range split (replace .text "$" "") " " -}}
+  {{- if eq $cur "" }}{{ $cur = . }}
+  {{- else if le (add (len $cur) (add 1 (len .))) $.max }}{{ $cur = printf "%s %s" $cur . }}
+  {{- else }}{{ $lines = $lines | append $cur }}{{ $cur = . }}{{ end -}}
+{{- end -}}
+{{- if $cur }}{{ $lines = $lines | append $cur }}{{ end -}}
+{{- if gt (len $lines) .lines -}}
+  {{- $keep := first .lines $lines -}}
+  {{- $last := index $keep (sub .lines 1) -}}
+  {{- $lines = (first (sub .lines 1) $keep) | append (printf "%s…" $last) -}}
+{{- end -}}
+{{- return $lines -}}

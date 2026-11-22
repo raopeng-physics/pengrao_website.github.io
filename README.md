@@ -29,7 +29,7 @@ The live site updates about a minute later (progress: the repo's **Actions** tab
 | Name, position, email, Scholar / ORCID / arXiv links, CV path, photo | `hugo.toml` → `[params]` |
 | Homepage “beyond physics” sentence | `content/_index.md` |
 | Physics intro, research areas, homepage Physics summary | `content/physics/_index.md` |
-| Selected publications | `data/publications.yaml` |
+| Selected publications (+ figures) | `data/publications.yaml`, figures in `static/figures/` |
 | Lecture notes | `content/notes/<name>/index.md` + PDF in `static/files/` |
 | Essays | `content/writing/<name>.md` |
 | Topic colours for essays | `hugo.toml` → `[params.topics]` |
@@ -37,10 +37,13 @@ The live site updates about a minute later (progress: the repo's **Actions** tab
 | Impressum / Privacy | `content/impressum.md`, `content/privacy.md` |
 | Colours, fonts, layout | `assets/css/main.css` |
 | Page templates | `layouts/` |
+| Link-preview images (cards) | `layouts/partials/cards/`, rendered by `scripts/cards.mjs` |
 
 ## Routine tasks
 
-**Add a paper** — add an entry at the top of `data/publications.yaml`.
+**Add a paper** — add an entry at the top of `data/publications.yaml` (copy an existing one). Give
+`volume` and `pages` so the citation line is complete. For a figure, put a PNG/JPG (~600 px wide)
+in `static/figures/` and set `figure: "/figures/<name>.png"` plus a one-line `figure_alt`.
 
 **Update the CV** — replace `static/files/cv.pdf`.
 
@@ -69,6 +72,16 @@ add it under `[params.topics]` in `hugo.toml`.
 
 Delete the two example essays in `content/writing/` when you add real ones (they are drafts and never
 appear online).
+
+## Link previews, email, 404
+
+- **Link previews.** When a page is shared (Slack, email, LinkedIn, Bluesky…), the preview shows a card image.
+  Essays get their own card (topic, title, the essay's watercolour squares); all other pages share one card with
+  your name and the homepage composition. The cards are drawn as SVG by Hugo and converted to PNG during
+  deployment, so they exist only on the live site, not in `hugo server`. Nothing to do when you add an essay.
+- **Email.** Set `email = "…"` in `hugo.toml`. It appears in the Profile cards, but is assembled by a script so
+  spam bots reading the HTML don't see it.
+- **404 page.** `layouts/404.html`.
 
 ## Maths (LaTeX)
 

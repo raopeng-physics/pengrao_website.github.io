@@ -1,0 +1,9 @@
+{{- /* Default link-preview card (1200×630) for every page that is not an essay: name, tagline and the homepage composition. */ -}}
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+{{ partial "filters.html" . }}
+<rect width="1200" height="630" fill="#F4EEE2"/>
+<svg x="560" y="110" width="690" height="460" viewBox="0 0 900 600" overflow="visible">{{ partial "compo.html" . }}</svg>
+<text x="84" y="200" font-family="Jost" font-weight="600" font-size="108" fill="#1F1D1A">{{ site.Params.name }}</text>
+<text x="88" y="262" font-family="Spectral" font-style="italic" font-size="34" fill="#3A3530">{{ site.Params.tagline }}</text>
+{{ with site.Params.position }}<text x="88" y="306" font-family="IBM Plex Sans" font-weight="500" font-size="24" fill="#4A4540">{{ . }}</text>{{ end }}
+</svg>

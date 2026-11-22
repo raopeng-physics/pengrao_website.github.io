@@ -1,0 +1,21 @@
+{{- /* Link-preview card (1200×630) for an essay: topic, title and the essay's own watercolour squares.
+  Rendered to PNG during deployment (scripts/cards.mjs); fonts in assets/cards/fonts/
+  (font names: "Jost" and "IBM Plex Sans" with font-weight; Spectral is "Spectral SemiBold"). */ -}}
+{{- $name := .Params.topic | default "Other" -}}
+{{- $t := index site.Params.topics $name | default site.Params.topics.default -}}
+{{- $lines := partial "cards/wrap.html" (dict "text" .Title "max" 19 "lines" 4) -}}
+{{- $size := cond (gt (len $lines) 3) 58 66 -}}
+{{- $lh := mul $size 1.16 -}}
+{{- $y0 := sub 330 (div (mul (sub (len $lines) 1) $lh) 2) -}}
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+{{ partial "filters.html" . }}
+<rect width="1200" height="630" fill="#F4EEE2"/>
+<svg x="700" y="105" width="440" height="358" overflow="visible">{{ partial "squares.html" (dict "title" .Title "topic" $t) }}</svg>
+<text x="84" y="120" font-family="IBM Plex Sans" font-weight="500" font-size="24" letter-spacing="3" fill="{{ $t.ink }}">{{ upper $name }}</text>
+{{- range $i, $l := $lines }}
+<text x="84" y="{{ add $y0 (mul $i $lh) }}" font-family="Spectral SemiBold" font-size="{{ $size }}" fill="#1F1D1A">{{ $l }}</text>
+{{- end }}
+<path d="M84 528 C140 520 196 536 262 528 S384 520 440 528" fill="none" stroke="#8C7B66" stroke-width="1.6"/>
+<text x="84" y="578" font-family="Jost" font-weight="600" font-size="34" fill="#1F1D1A">{{ site.Params.name }}</text>
+<text x="250" y="578" font-family="IBM Plex Sans" font-weight="500" font-size="22" fill="#5C564C">Writing</text>
+</svg>
