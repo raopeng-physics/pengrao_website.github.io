@@ -9,4 +9,4 @@ research:
   - title: "Band topology and anomalous Hall effect"
     text: "In electronic systems with broken time-reversal-symmetry, the bands can acquire integer topological quantum numbers which can lead to a non-zero anomalous Hall conductivity. I study electronic systems with such topological properties."
 ---
-I am a theoretical condensed-matter physicist and postdoctoral researcher in Prof. Johannes Knolle’s group at the Technical University of Munich. My main research areas are quantum spin liquid and interaction phenomena in electronic systems. But I am also interested in a broad range of areas such as band topology and transport.
+I am a theoretical condensed-matter physicist. My main research areas are quantum spin liquid and interaction phenomena in electronic systems. But I am also interested in a broad range of physics topics. My methods are mostly analytical, complemented by numerics where necessary.
