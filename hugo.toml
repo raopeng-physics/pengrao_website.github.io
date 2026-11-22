@@ -33,7 +33,7 @@ disableKinds = ["taxonomy", "term"]
   # Used for search engines (schema.org "worksFor"); not shown on the page
   employer = "Technical University of Munich"
   # Email shown in the Profile cards. It is assembled by JavaScript, so spam bots reading the HTML don't see it.
-  email = peng.rao [at] tum.de
+  email = "peng.rao [at] tum.de"
   scholar = "https://scholar.google.com/citations?user=5MsEmIwAAAAJ&hl=en"
   orcid = "https://orcid.org/0000-0003-1250-0021"
   # Put your CV at static/files/cv.pdf (or change the path here)

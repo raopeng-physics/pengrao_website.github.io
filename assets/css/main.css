@@ -98,9 +98,9 @@ a.wc.on-dark:hover { color: #fff; }
 .pub-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .pubs .takeaway { font-size: 15px; line-height: 1.5; }
 .pub-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: 15px; font-weight: 500; margin-top: 2px; }
-.pub-fig { display: block; background: #fff; padding: 6px; border: 1px solid var(--rule); margin-top: 4px; }
+.pub-fig { display: block; margin-top: 4px; }
 .pub-fig img { width: 100%; height: auto; }
-.pub-fig:hover { border-color: #8C7B66; }
+.pub-fig:hover { opacity: .85; }
 .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; font-weight: 500; }
 .btn { text-decoration: none; padding: 12px 18px; background: #7A2E2A; color: #fff; }
 .btn:hover { color: #fff; opacity: .9; }
