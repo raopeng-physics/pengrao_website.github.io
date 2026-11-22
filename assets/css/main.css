@@ -127,6 +127,7 @@ a.wc.on-dark:hover { color: #fff; }
 .meta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 14px; color: #5C564C; }
 .topic { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; }
 .essay-title { font-family: var(--serif); font-size: 30px; font-weight: 600; line-height: 1.2; }
+.essay-subtitle { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.4; color: #3A3530; margin-top: -4px; }
 .essay-teaser { font-family: var(--serif); font-size: 18px; line-height: 1.55; color: #3A3530; }
 .wave { display: block; width: 100%; height: 14px; }
 .empty-note { font-family: var(--serif); font-size: 19px; color: var(--ink-soft); }
@@ -143,6 +144,21 @@ a.wc.on-dark:hover { color: #fff; }
 .prose blockquote { margin: 30px 0; padding: 4px 0 4px 24px; border-left: 4px solid var(--sepia); font-style: italic; font-size: 22px; line-height: 1.55; color: #3A3530; }
 .prose img { margin: 30px auto; }
 .prose sup, .prose sub { line-height: 0; }
+/* Footnotes: list at the end; on wide screens shown as side notes instead */
+.prose { position: relative; }
+.prose .footnote-ref { font-family: var(--sans); font-size: 13px; font-weight: 600; color: #A33A24; text-decoration: none; padding: 0 1px; }
+.prose .footnotes { font-size: 16px; line-height: 1.6; padding-top: 18px; border-top: 1px solid var(--rule); }
+.prose .footnotes hr { display: none; }
+.prose .footnotes ol { padding-left: 22px; margin: 0; }
+.prose .footnotes li + li { margin-top: 8px; }
+.prose .footnote-backref { text-decoration: none; }
+.prose > .sidenote { display: none; margin: 0; }
+@media (min-width: 1280px) {
+  .has-sidenotes .prose .footnotes { display: none; }
+  .prose > .sidenote { display: block; position: absolute; left: calc(100% + 48px); width: 220px; font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-soft); font-style: normal; }
+  .sidenote p { display: inline; margin: 0; }
+  .sidenote .sn-num { font-weight: 600; color: #A33A24; }
+}
 .article-nav { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--rule); font-weight: 500; }
 .article-nav a { text-decoration: none; }
 

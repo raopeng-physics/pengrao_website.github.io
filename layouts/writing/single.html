@@ -17,3 +17,43 @@
   </nav>
 </article>
 {{ end }}
+
+{{ define "scripts" }}
+<script>
+/* Side notes: on wide screens, copy each footnote into the right margin next to its reference. */
+(function () {
+  var prose = document.querySelector('.prose');
+  if (!prose || !prose.querySelector('.footnotes')) return;
+  var wide = window.matchMedia('(min-width: 1280px)');
+  var notes = [];
+  function build() {
+    prose.querySelectorAll('a.footnote-ref').forEach(function (ref) {
+      var li = document.getElementById(decodeURIComponent(ref.getAttribute('href').slice(1)));
+      if (!li) return;
+      var aside = document.createElement('aside');
+      aside.className = 'sidenote';
+      aside.setAttribute('aria-hidden', 'true');
+      aside.innerHTML = '<span class="sn-num">' + ref.textContent + '</span> ' + li.innerHTML;
+      aside.querySelectorAll('.footnote-backref').forEach(function (b) { b.remove(); });
+      prose.appendChild(aside);
+      ref.addEventListener('click', function (e) { if (wide.matches) e.preventDefault(); });
+      notes.push([ref, aside]);
+    });
+    document.body.classList.add('has-sidenotes');
+  }
+  function layout() {
+    if (!wide.matches) return;
+    var base = prose.getBoundingClientRect().top, bottom = 0;
+    notes.forEach(function (n) {
+      var top = Math.max(n[0].getBoundingClientRect().top - base - 6, bottom);
+      n[1].style.top = top + 'px';
+      bottom = top + n[1].offsetHeight + 14;
+    });
+  }
+  function start() { build(); layout(); if (document.fonts) document.fonts.ready.then(layout); }
+  window.addEventListener('load', start);
+  window.addEventListener('resize', layout);
+  wide.addEventListener('change', layout);
+})();
+</script>
+{{ end }}

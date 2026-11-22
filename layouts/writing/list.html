@@ -38,6 +38,7 @@
           <span class="essay-text">
             <span class="meta"><span class="topic" style="color:{{ $t.ink }}">{{ $name }}</span><span>{{ .Date.Format "2 January 2006" }} · {{ .ReadingTime }} min read</span>{{ if .Draft }}<span>(draft)</span>{{ end }}</span>
             <span class="essay-title">{{ .Title }}</span>
+            {{ with .Params.subtitle }}<span class="essay-subtitle">{{ . }}</span>{{ end }}
             {{ with .Description }}<span class="essay-teaser">{{ . }}</span>{{ end }}
           </span>
         </span>

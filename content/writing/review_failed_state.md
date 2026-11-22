@@ -1,9 +1,9 @@
 ---
-title: "Book Review of 'Failed state'"
+title: "Dilemma of democratic politics in the ne"
 date: 2026-11-20
 topic: "History"
-description: "Short review of the book 'Failed State, Why Britain Doesn't Work and How We Fix it' by Sam Freedman."
-subtitle: "Optional subtitle"
+# description: "Short review of the book 'Failed State, Why Britain Doesn't Work and How We Fix it' by Sam Freedman."
+subtitle: "Book Review of 'Failed State, Why Britain Doesn't Work and How We Fix it' by Sam Freedman."
 # draft: true keeps the essay off the live site. Delete this example, or set draft: false on a real essay to publish it.
 # draft: true
 ---
@@ -12,7 +12,9 @@ I have been reading Sam Freedman's 'Failed State, Why Britain Doesn't Work and H
 
 Interestingly, several key observations in his book, the retreat of the state in society, the evasion of Parliamentary and democratic scrutiny by the executive branch, and the influence of news media, are clearly general trends within advanced liberal democratic states, albeit the peculiarities of Britain exacerbated these developments. Indeed, already in 1994 Hobsbawm wrote on the impasse of liberal democratic politics:
 
->Increasingly, however, governments took to by-passing both the electorate and its representative assemblies... relying on the volatility, divisions or inertness of public opinions. Politics increasingly became an exercise in evasion, as politicians were afraid of telling voters what they did not want to hear... Even in democratic countries more and more decision making bodies would be withdrawn from electoral control... Centralising governments, such as those in Britain in the 1980s and early 1990s, were particularly inclined to multiply such ad hoc authorities not answering to an electorate and nicknamed "quangos" [originated from the word 'quasi-NGOs']. (E. Hobsbawn, 1994, p580)
+>Increasingly, however, governments took to by-passing both the electorate and its representative assemblies... relying on the volatility, divisions or inertness of public opinions. Politics increasingly became an exercise in evasion, as politicians were afraid of telling voters what they did not want to hear... Even in democratic countries more and more decision making bodies would be withdrawn from electoral control... Centralising governments, such as those in Britain in the 1980s and early 1990s, were particularly inclined to multiply such ad hoc authorities not answering to an electorate and nicknamed "quangos"[^quango]. (E. Hobsbawn, 1994, p580)
+
+[^quango]: Originated from the word 'quasi-NGOs'.
 
 These developments come from the relative and total loss of state capacities since the 1980s, in conducting independent policies against a more globalised world economy which it can no longer control, in maintaining the welfare programs that were expanded decades earlier, and in the retreat of state and public institutions from society that accompanied the privatisation of entertainment and life-style. This has in turn fractured democratic politics and made it more volatile, as the majority of the electorate still expected the state to fulfill these functions, and as it was no longer represented by traditional mass parties which were the mechanism to reflect its wishes. These are universal trends in advanced capitalist countries of the West; in Britain and the USA they are deemed ideologically desirable.
 
