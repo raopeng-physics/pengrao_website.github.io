@@ -49,7 +49,7 @@
     {{ partial "wash.html" (dict "fill" "#F1D9E1" "rot" 0.5) }}
     <span class="inner">
       <span class="card-title">Writing</span>
-      <span class="card-text">{{ with index $essays 0 }}Latest: {{ .Title }}{{ else }}{{ $.Params.cards.writing | default "Essays beyond physics" }}{{ end }}</span>
+      <span class="card-text">{{ .Params.cards.writing | default "Essays beyond physics" }}</span>
     </span>
   </a>
   {{- end }}

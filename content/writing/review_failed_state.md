@@ -1,6 +1,6 @@
 ---
 title: "Dilemma of democratic politics in the new century"
-date: 2026-11-20
+date: 2026-11-22
 topic: "History"
 # description: "Short review of the book 'Failed State, Why Britain Doesn't Work and How We Fix it' by Sam Freedman."
 subtitle: "Book Review of 'Failed State, Why Britain Doesn't Work and How We Fix it' by Sam Freedman."
