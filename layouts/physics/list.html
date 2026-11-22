@@ -76,7 +76,7 @@
             <span class="pub-links">{{ with $p.doi }}<a href="https://doi.org/{{ . }}">DOI</a>{{ end }}</span>
           </div>
           {{- with $p.figure }}
-          <a class="pub-fig" href="{{ . | relURL }}" title="Open the full-size figure"><img src="{{ . | relURL }}" alt="{{ $p.figure_alt | default (printf "Figure from “%s”" $p.title) }}" loading="lazy"></a>
+          <div class="pub-fig"><img src="{{ . | relURL }}" alt="{{ $p.figure_alt | default (printf "Figure from “%s”" $p.title) }}" loading="lazy"></div>
           {{- end }}
         </li>
         {{- end }}

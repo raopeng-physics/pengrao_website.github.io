@@ -100,7 +100,6 @@ a.wc.on-dark:hover { color: #fff; }
 .pub-links { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: 15px; font-weight: 500; margin-top: 2px; }
 .pub-fig { display: block; margin-top: 4px; }
 .pub-fig img { width: 100%; height: auto; }
-.pub-fig:hover { opacity: .85; }
 .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; font-weight: 500; }
 .btn { text-decoration: none; padding: 12px 18px; background: #7A2E2A; color: #fff; }
 .btn:hover { color: #fff; opacity: .9; }
