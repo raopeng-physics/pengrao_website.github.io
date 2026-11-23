@@ -36,4 +36,4 @@ selected:
     doi: "10.1103/PhysRevResearch.4.043003"
     # figure: "/figures/chen2022berry.png"
     # figure_alt: ""
-    takeaway: 'We developed an exact duality between 2D spin-$1/2$ lattices to the Majorana fermions and vison quasiparticles (see also my PhD thesis), and studied the topology of the vison bands in extended Kitaev models.'
+    takeaway: 'We derived an exact duality between 2D spin-$1/2$ lattices to the Majorana fermions and vison quasiparticles (see also my PhD thesis), and used it to study the topology of the vison bands in extended Kitaev models.'

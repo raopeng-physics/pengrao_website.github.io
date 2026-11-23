@@ -1,5 +1,5 @@
 ---
-title: "Two short stories"
+title: "Two Short Stories"
 date: 2026-11-21
 topic: "Stories"
 description: "These two short stories below were completed between the end of 2022 and early 2023. The first story is a variation on Kafka's unpublished story 'Der Aufruf' ('The Uprising') that was published as a part of his diary."
